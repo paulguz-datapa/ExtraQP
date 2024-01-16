@@ -1,0 +1,28 @@
+@page "/authentication/{action}"
+@attribute [AllowAnonymous]
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@inject NavigationManager Navigation 
+
+<RemoteAuthenticatorView Action="@Action" OnLogInSucceeded="OnLoginSucceeded" @ref=RemoteAuthViewRef />
+
+
+@code{
+  [Parameter] public string Action { get; set; }
+
+  RemoteAuthenticatorView RemoteAuthViewRef;
+
+
+  async void OnLoginSucceeded(RemoteAuthenticationState authState)
+  {
+    try
+    {
+      //await RedirectToPostLoginPath();
+    }
+    catch
+    {
+    }
+  }
+
+  
+}
